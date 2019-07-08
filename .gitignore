@@ -1,0 +1,6 @@
+# Archivos Configuracion
+config/
+
+# System Files
+.DS_Store
+Thumbs.db

@@ -1,10 +1,11 @@
 <?php
-  //El código PHP que haga falta va acá
+//El código PHP que haga falta va acá
 ?>
 
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="UTF-8">
@@ -18,62 +19,143 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <title>Document</title>
+  <title>Inicio</title>
 </head>
+
 <body>
 
-    <!-- HEADER -->
-    <header>
-      <nav id="header" class="navbar fixed-top shadow navbar-expand-md navbar-dark bg-dark" role="navigation">
-        <div class="container">
-          <div class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            <!-- <span class="bar"></span>
-            <span class="bar"></span> -->
-          </div>
-          <!-- Nuestro logo de marca -->
-          <!-- TODO: Anidar una imagen dentro -->
-          <a class="navbar-brand" href="#">EnBirrados</a>
-          <!-- Navbar plegable superior -->
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item link"><a class="nav-link" href="#">Inicio</a></li>
-              <li class="nav-item link"><a class="nav-link" href="#about">Nuestro juego</a></li>
-              <li class="nav-item link"><a class="nav-link" href="#">Reglas</a></li>
-              <li class="nav-item link"><a class="nav-link" href="#services">Preguntas Frecuentes</a></li>
-              <li class="nav-item link"><a class="nav-link" href="#">Contacto</a></li>
-            </ul>
-            <!-- Boton de Login -->
-            <form class="form-inline">
-              <button class="btn btn-outline-primary" type="button">Login</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- SECTION: TOP -->
-    <section id="top" class="first">
+  <!-- HEADER -->
+  <header>
+    <nav id="header" class="navbar fixed-top shadow navbar-expand-md navbar-dark bg-dark" role="navigation">
       <div class="container">
-        <div class="row">
-          <div class="col">
-            <img class="img-fluid" src="https://via.placeholder.com/300x500.png" alt="BirritApp">
+        <div class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          <!-- <span class="bar"></span>
+            <span class="bar"></span> -->
+        </div>
+        <!-- Nuestro logo de marca -->
+        <a class="navbar-brand" href="#"><img class="img-fluid" src="img/logo_embirrados_chico.png" alt="BirritApp"></a>
+        <!-- Navbar plegable superior -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item link"><a class="nav-link" href="#top">Inicio</a></li>
+            <li class="nav-item link"><a class="nav-link" href="#about">Registrate</a></li>
+            <li class="nav-item link"><a class="nav-link" href="#reglas">Reglas</a></li>
+            <li class="nav-item link"><a class="nav-link" href="#faq">Preguntas Frecuentes</a></li>
+            <li class="nav-item link"><a class="nav-link" href="#contacto">Contacto</a></li>
+          </ul>
+          <!-- Boton de Login -->
+          <form class="form-inline">
+            <button class="btn btn-outline-warning" type="button" data-toggle="modal" data-target="#modalLogin" data-whatever="@mdo">Login</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MODAL para Login -->
+  <!-- Referencia al boton Login -->
+  <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLogin" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <!-- Contenido del Modal -->
+      <div class="modal-content">
+        <!-- Header del Modal -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLogin">Iniciar Sesión</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- Body del Modal donde colocamos el formulario -->
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">E-mail:</label>
+              <input type="email" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Contraseña:</label>
+              <input type="password" class="form-control" id="recipient-name">
+            </div>
+          </form>
+        </div>
+        <!-- Footer del Modal, contiene botones -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-warning">Iniciar Sesión</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION: TOP -->
+  <section id="top" class="first">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img class="img-fluid" src="img/rueda_icono.png" alt="BirritApp">
+        </div>
+        <div class="col">
+          <div class="row">
+            <img class="img-fluid" src="img/logo_embirrados.png" alt="BirritApp">
+            <p>Comienza a jugar hoy mismo, no podrás parar de jugar.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis culpa velit repellendus corporis, omnis ratione natus molestias aliquid autem enim in. Expedita, nisi? Dolor, tempore eos veniam unde id magni.</p>
           </div>
-          <div class="col">
-            <div class="row">
-              <h1>EnBirrados</h1>
-              <p>Comienza a jugar hoy mismo, no podrás parar de jugar.</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis culpa velit repellendus corporis, omnis ratione natus molestias aliquid autem enim in. Expedita, nisi? Dolor, tempore eos veniam unde id magni.</p>
-            </div>
-            <div class="row">
-              <p><a class="btn btn-primary btn-lg" href="#" role="button"><i class="fas fa-dice-d20"></i> Empieza a jugar ahora &raquo;</a></p>
-            </div>
+          <div class="row">
+            <p><a class="btn btn-warning btn-lg" href="#" role="button"><i class="fas fa-dice-d20"></i> Empieza a jugar ahora &raquo;</a></p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- SECTION: CONTACTO -->
+  <section id="contacto" class="first">
+    <div class="container">
+      <h2>Contactate con nosotros</h2>
+      <form>
+        <label for="inputNombre" class="sr-only">Nombre</label>
+        <input type="text" id="inputEmail" class="form-control mb-3" placeholder="Nombre completo" required autofocus>
+
+        <label for="inputEmail" class="sr-only">Correo electrónico</label>
+        <input type="email" id="inputEmail" class="form-control mb-3" placeholder="Correo electrónico" required>
+
+        <label for="inputAsunto" class="sr-only">Asunto</label>
+        <input type="text" id="inputAsunto" class="form-control mb-3" placeholder="Asunto" required>
+
+        <label for="inputMensaje" class="sr-only">Mensaje</label>
+        <textarea name="mensaje" class="form-control mb-3" id="inputMensaje" cols="30" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+        <br>
+        <button class="btn btn-warning btn-lg" type="submit">Enviar</button>
+
+      </form>
+      <div class="text-center">
+        <ul class="list-unstyled">
+          <li><i class="fa fa-map-marker" style="font-size:30px;"></i>
+            Av. Trueno 1234, 2000 ROSARIO
+          </li>
+          <br>
+          <li><i class="fa fa-whatsapp" style="font-size:30px;"></i>
+            +54 9 341 323-0962
+          </li>
+          <br>
+          <li><i class="fa fa-envelope" style="font-size:30px;"></i><a href="mailto:contacto@teamtrueno.com">
+              contacto@teamtrueno.com
+            </a>
+          </li>
+        </ul>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <section id="contacto" class="first">
+      <div class="container text-center">
+        <p>Desarrollado por <a href="https://teamtrueno.com/">&copy; Team Trueno <i class="fa fa-bolt pr-10" style="font-size:20px;color:black;"></i></p>
+      </div>
     </section>
-
-
+  </footer>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -81,4 +163,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>

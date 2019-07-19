@@ -130,31 +130,32 @@
         <button class="btn btn-warning btn-lg" type="submit">Enviar</button>
 
       </form>
-      <div class="text-center">
-        <ul class="list-unstyled">
-          <li><i class="fa fa-map-marker" style="font-size:30px;"></i>
-            Av. Trueno 1234, 2000 ROSARIO
-          </li>
-          <br>
-          <li><i class="fa fa-whatsapp" style="font-size:30px;"></i>
-            +54 9 341 323-0962
-          </li>
-          <br>
-          <li><i class="fa fa-envelope" style="font-size:30px;"></i><a href="mailto:contacto@teamtrueno.com">
-              contacto@teamtrueno.com
-            </a>
-          </li>
-        </ul>
-      </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <section id="contacto" class="first">
-      <div class="container text-center">
-        <p>Desarrollado por <a href="https://teamtrueno.com/">&copy; Team Trueno <i class="fa fa-bolt pr-10" style="font-size:20px;color:black;"></i></p>
+  <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4" style="background-color:linen;">
+            <h3>Contacto</h3>
+            <ul class="list-unstyled">
+              <li><i class="fa fa-map-marker-alt"></i> Av. Trueno 1234, 2000 Rosario</li>
+              <li><i class="fab fa-whatsapp"></i> +54 9 341 323-0962</li>
+              <li><i class="fa fa-envelope"></i><a href="mailto:contacto@teamtrueno.com"> contacto@teamtrueno.com</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4" style="background-color:red;">
+            <p>Desarrollado por TeamTrueno</p>
+          </div>
+          <div class="col-md-4" style="background-color:blue;">
+            <h3>Seguinos en</h3>
+            <span class="red"><i class="fab fa-facebook-f"></i></span>
+            <span class="red"><i class="fab fa-instagram"></i></span>
+            <span class="red"><i class="fab fa-linkedin"></i></span>
+            <span class="red"><i class="fab fa-twitter"></i> teamtrueno</span>
+          </div>
+        </div>
       </div>
-    </section>
   </footer>
 
   <!-- Optional JavaScript -->

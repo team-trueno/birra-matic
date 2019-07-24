@@ -130,13 +130,14 @@
         <button class="btn btn-warning btn-lg" type="submit">Enviar</button>
 
       </form>
+      <br>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-4" style="background-color:linen;">
+          <div class="col-md-4">
             <h3>Contacto</h3>
             <ul class="list-unstyled">
               <li><i class="fa fa-map-marker-alt"></i> Av. Trueno 1234, 2000 Rosario</li>
@@ -144,10 +145,10 @@
               <li><i class="fa fa-envelope"></i><a href="mailto:contacto@teamtrueno.com"> contacto@teamtrueno.com</a></li>
             </ul>
           </div>
-          <div class="col-md-4" style="background-color:red;">
+          <div class="col-md-4">
             <p>Desarrollado por TeamTrueno</p>
           </div>
-          <div class="col-md-4" style="background-color:blue;">
+          <div class="col-md-4">
             <h3>Seguinos en</h3>
             <span class="red"><i class="fab fa-facebook-f"></i></span>
             <span class="red"><i class="fab fa-instagram"></i></span>

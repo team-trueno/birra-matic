@@ -39,27 +39,26 @@ $faq = [
 <?php include("../config/head.php") ?>
 
 <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-        <main role="main" class="inner cover mt-3">
-            <h2 class="h1-responsive font-weight-bold text-center my-4">Preguntas frecuentes
-            </h2>
-            <img src="" alt="logo" width="150" height="150" class="mb-5">
+    <!-- SECTION: FAQ -->
+    <section id="faq" class="first">
+        <div class="container">
+            <h2>Preguntas frecuentes</h2>
+            <img src="../img/rueda_icono.png" alt="logo" width="150" height="150" class="mb-5">
             <!-- TODO: crear funcion para obtener datos de las tablas *preguntas* y *respuestas* -->
             <!-- Hago un foreach que recorre el array $faq -->
             <?php foreach ($faq as $faqs) : ?>
                 <!-- Recorro el array y voy mostrando en el acordeón cada una de las preguntas y respuestas por id -->
                 <div class="accordion" id="accordionFAQ" style="border: 1px dashed gray;">
-                    <div class="card bg-gris">
+                    <div class="card">
                         <div class="card-header" id="heading<?= $faqs["id"] ?>">
                             <h2 class="mb-0">
-                                <button class="btn btn-lg btn-outline-info" type="button" data-toggle="collapse" data-target="#collapse<?= $faqs["id"] ?>" aria-expanded="true" aria-controls="collapse<?= $faqs["id"] ?>">
+                                <button class="btn btn-lg btn-warning" type="button" data-toggle="collapse" data-target="#collapse<?= $faqs["id"] ?>" aria-expanded="true" aria-controls="collapse<?= $faqs["id"] ?>">
                                     <?= $faqs["pregunta"] ?>
                                 </button>
                             </h2>
                         </div>
 
-                        <div id="collapse<?= $faqs["id"] ?>" class="collapse show" aria-labelledby="heading<?= $faqs["id"] ?>" data-parent="#accordionFAQ" style="border-top: 1px dashed gray;">
+                        <div id="collapse<?= $faqs["id"] ?>" class="collapse" aria-labelledby="heading<?= $faqs["id"] ?>" data-parent="#accordionFAQ" style="border-top: 1px dashed gray;">
                             <div class="card-body">
                                 <?= $faqs["respuesta"] ?>
                             </div>
@@ -67,10 +66,12 @@ $faq = [
                     </div>
                 </div>
             <?php endforeach; ?>
-        </main>
+        </div>
+    </section>
+    <br>
 
-        <!-- TODO: Cargar archivo footer.php y librerias de jquery y jscript-->
-        <?php include("../config/footer.php") ?>
+    <!-- TODO: Cargar archivo footer.php y librerias de jquery y jscript-->
+    <?php include("../config/footer.php") ?>
     </div>
 
 </body>

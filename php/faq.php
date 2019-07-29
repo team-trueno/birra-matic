@@ -1,36 +1,11 @@
 <?php
 
-// TODO: Crear tablas *preguntas* y *respuestas* que reemplacen el array temporario $faq
-// TODO: Conectar con la base de datos a través de archivo pdo.php
+//Incluyo archivo donde se encuentra la clase pregunta.php
+require_once("../modelo/pregunta.php");
 
-// Creo array $faq que contiene preguntas y respuestas con un id para identificarlas
-$faq = [
-    0 => [
-        "id" => 1,
-        "pregunta" => "¿Cuáles son los diferentes tipos de descuentos que puedo obtener?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ],
-    1 => [
-        "id" => 2,
-        "pregunta" => "¿Tengo algún beneficio consumiendo productos del local?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ],
-    2 => [
-        "id" => 3,
-        "pregunta" => "¿Cuántas posibilidades de juego tengo?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ],
-    3 => [
-        "id" => 4,
-        "pregunta" => "¿Cuál es el descuento máximo que puedo obtener?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ],
-    4 => [
-        "id" => 5,
-        "pregunta" => "¿Los descuentos y productos obtenidos son al azar?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ]
-];
+//Guardo en este array todas las preguntas en forma de objetos
+$preguntas = Pregunta::all();
+
 ?>
 
 <!DOCTYPE html>
@@ -69,24 +44,22 @@ $faq = [
                     <div class="card">
                         <div class="card-header">Header</div>
                         <div class="card-body">
-                            <!-- TODO: crear funcion para obtener datos de las tablas *preguntas* y *respuestas* -->
-                            <!-- Hago un foreach que recorre el array $faq -->
-                            <!-- Recorro el array y voy mostrando en el acordeón cada una de las preguntas y respuestas por id -->
+                            <!-- Recorro el array y voy mostrando en el acordeón cada una de las preguntas y respuestas por id a través de los getters -->
                             <div class="accordion" id="accordionFAQ">
-                                <?php foreach ($faq as $faqs) : ?>
+                                <?php foreach ($preguntas as $pregunta) : ?>
                                 <div class="card">
-                                    <div class="card-header" id="heading<?= $faqs["id"] ?>">
+                                    <div class="card-header" id="heading<?= $pregunta->getId() ?>">
                                         <h5 class="mb-0">
-                                            <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapse<?= $faqs["id"] ?>" aria-expanded="true" aria-controls="collapse<?= $faqs["id"] ?>">
-                                                <?= $faqs["pregunta"] ?>
+                                            <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapse<?= $pregunta->getId() ?>" aria-expanded="true" aria-controls="collapse<?= $pregunta->getId() ?>">
+                                                <?= $pregunta->getPregunta() ?>
                                             </button>
                                         </h5>
                                     </div>
 
-                                    <div id="collapse<?= $faqs["id"] ?>" class="collapse" aria-labelledby="heading<?= $faqs["id"] ?>" data-parent="#accordionFAQ">
+                                    <div id="collapse<?= $pregunta->getId() ?>" class="collapse" aria-labelledby="heading<?= $pregunta->getId() ?>" data-parent="#accordionFAQ">
                                         <div class="card-body">
                                             <p class="card-text">
-                                                <?= $faqs["respuesta"] ?>
+                                                <?= $pregunta->getRespuesta() ?>
                                             </p>
                                         </div>
                                     </div>

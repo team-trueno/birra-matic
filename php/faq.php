@@ -6,6 +6,8 @@ require_once("../modelo/pregunta.php");
 //Guardo en este array todas las preguntas en forma de objetos
 $preguntas = Pregunta::all();
 
+//var_dump($preguntas);exit;
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,7 @@ $preguntas = Pregunta::all();
 
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
     <title>FAQ</title>
 </head>
@@ -41,11 +43,16 @@ $preguntas = Pregunta::all();
 
             <div class="row">
                 <div class="col">
-                    <div class="card">
+                    <!-- TODO: Hay que hacer un foreach que repita el bloque CARD -->
+                    <!-- TODO: Cada bloque CARD tiene que representar a 1 tópico -->
+                    <div class="card mb-3">
+                        <!-- TODO: El Header debería ser el campo de texto del tópico -->
                         <div class="card-header">Header</div>
                         <div class="card-body">
                             <!-- Recorro el array y voy mostrando en el acordeón cada una de las preguntas y respuestas por id a través de los getters -->
+                            <!-- TODO: El id del accordion debe responder al id del tópico -->
                             <div class="accordion" id="accordionFAQ">
+                                <!-- TODO: No se pueden recorrer mas todas las preguntas, solo las que pertenecen a un topico especifico -->
                                 <?php foreach ($preguntas as $pregunta) : ?>
                                 <div class="card">
                                     <div class="card-header" id="heading<?= $pregunta->getId() ?>">
@@ -70,6 +77,8 @@ $preguntas = Pregunta::all();
                     </div>
                 </div>
             </div>
+
+
 
 
 

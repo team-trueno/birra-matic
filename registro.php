@@ -17,7 +17,7 @@ try {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === POST) {
-    if ($_POST["pass"] == $_POST["pass-repeat"]) {
+    if ($_POST["pass"] === $_POST["pass-repeat"]) {
         $consulta = $db->prepare("INSERT INTO users (nombre, apellido, email, pass) VALUES (:nombre, :apellido, :email, :pass)");
         $consulta->bindValue(':nombre', $_POST["nombre"]);
         $consulta->bindValue(':apellido', $_POST["apellido"]);
@@ -61,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === POST) {
         <button type="submit">Registrarse</button>
         <br>
         <p>¿Ya estás registrado? <a href="#">Inicia sesión</a></p>
+        <!-- solo para control -->
         <?php echo $_SESSION["mensaje"]; ?>
     </form>
 </body>

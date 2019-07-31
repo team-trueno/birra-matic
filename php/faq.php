@@ -1,77 +1,103 @@
 <?php
 
-// TODO: Crear tablas *preguntas* y *respuestas* que reemplacen el array temporario $faq
-// TODO: Conectar con la base de datos a través de archivo pdo.php
+//Incluyo archivo donde se encuentra la clase pregunta.php
+require_once("../modelo/pregunta.php");
 
-// Creo array $faq que contiene preguntas y respuestas con un id para identificarlas
-$faq = [
-    0 => [
-        "id" => 1,
-        "pregunta" => "¿Cuáles son los diferentes tipos de descuentos que puedo obtener?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ],
-    1 => [
-        "id" => 2,
-        "pregunta" => "¿Tengo algún beneficio consumiendo productos del local?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ],
-    2 => [
-        "id" => 3,
-        "pregunta" => "¿Cuántas posibilidades de juego tengo?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ],
-    3 => [
-        "id" => 4,
-        "pregunta" => "¿Cuál es el descuento máximo que puedo obtener?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ],
-    4 => [
-        "id" => 5,
-        "pregunta" => "¿Los descuentos y productos obtenidos son al azar?",
-        "respuesta" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore veritatis amet praesentium natus omnis ullam quis sapiente assumenda est porro illum reiciendis nihil nemo, perferendis aperiam, magni voluptatibus inventore.",
-    ]
-];
+//Guardo en este array todas las preguntas en forma de objetos
+$preguntas = Pregunta::all();
+
+//var_dump($preguntas);exit;
+
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <!-- TODO: Cargar archivo head.php -->
-<?php include("../config/head.php") ?>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <main role="main" class="inner cover mt-3">
-            <h2 class="h1-responsive font-weight-bold text-center my-4">Preguntas frecuentes
-            </h2>
-            <img src="" alt="logo" width="150" height="150" class="mb-5">
-            <!-- TODO: crear funcion para obtener datos de las tablas *preguntas* y *respuestas* -->
-            <!-- Hago un foreach que recorre el array $faq -->
-            <?php foreach ($faq as $faqs) : ?>
-                <!-- Recorro el array y voy mostrando en el acordeón cada una de las preguntas y respuestas por id -->
-                <div class="accordion" id="accordionFAQ" style="border: 1px dashed gray;">
-                    <div class="card bg-gris">
-                        <div class="card-header" id="heading<?= $faqs["id"] ?>">
-                            <h2 class="mb-0">
-                                <button class="btn btn-lg btn-outline-info" type="button" data-toggle="collapse" data-target="#collapse<?= $faqs["id"] ?>" aria-expanded="true" aria-controls="collapse<?= $faqs["id"] ?>">
-                                    <?= $faqs["pregunta"] ?>
-                                </button>
-                            </h2>
-                        </div>
 
-                        <div id="collapse<?= $faqs["id"] ?>" class="collapse show" aria-labelledby="heading<?= $faqs["id"] ?>" data-parent="#accordionFAQ" style="border-top: 1px dashed gray;">
-                            <div class="card-body">
-                                <?= $faqs["respuesta"] ?>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <title>FAQ</title>
+</head>
+
+<body>
+    <!-- SECTION: FAQ -->
+    <section id="faq" class="first">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Preguntas frecuentes</h2>
+                    <img src="../img/rueda_icono.png" alt="logo" width="150" height="150" class="mb-5">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <!-- TODO: Hay que hacer un foreach que repita el bloque CARD -->
+                    <!-- TODO: Cada bloque CARD tiene que representar a 1 tópico -->
+                    <div class="card mb-3">
+                        <!-- TODO: El Header debería ser el campo de texto del tópico -->
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <!-- Recorro el array y voy mostrando en el acordeón cada una de las preguntas y respuestas por id a través de los getters -->
+                            <!-- TODO: El id del accordion debe responder al id del tópico -->
+                            <div class="accordion" id="accordionFAQ">
+                                <!-- TODO: No se pueden recorrer mas todas las preguntas, solo las que pertenecen a un topico especifico -->
+                                <?php foreach ($preguntas as $pregunta) : ?>
+                                <div class="card">
+                                    <div class="card-header" id="heading<?= $pregunta->getId() ?>">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapse<?= $pregunta->getId() ?>" aria-expanded="true" aria-controls="collapse<?= $pregunta->getId() ?>">
+                                                <?= $pregunta->getPregunta() ?>
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapse<?= $pregunta->getId() ?>" class="collapse" aria-labelledby="heading<?= $pregunta->getId() ?>" data-parent="#accordionFAQ">
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                                <?= $pregunta->getRespuesta() ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
-        </main>
+            </div>
 
-        <!-- TODO: Cargar archivo footer.php y librerias de jquery y jscript-->
-        <?php include("../config/footer.php") ?>
-    </div>
+
+
+
+
+
+        </div>
+    </section>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
 </body>
 
